@@ -9,10 +9,13 @@ In ra toàn bộ danh sách từ trong từ điển
 Máy bạn phải cài java
 
 Các file trong source code phải được đặt cùng trong 1 thư mục
+
 Trong bài sử dụng package "folder" nên bạn nhớ tạo một package "folder" để chạy được code của bọn mình
 ### Cách chạy: 
 Bật cmd của máy các bạn lên, xong rồi chỉ đến thư mục chứa source code
+
 Do có package nên nó hơi khác với complier file java bình thường nha
+
 Gõ vào lệnh
 ```sh
 javac -d . Main.java
