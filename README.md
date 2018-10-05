@@ -17,10 +17,15 @@ Gõ vào lệnh
 ```sh
 javac -d . Main.java
 ```
-Đợi 1 chút để compiler java dịch các file ra bytecode java
+Chờ 1 chút để compiler java dịch các file ra bytecode java
 
 Gõ vào lệnh
 ```sh
 java folder.Main
 ```
-Máy ảo java sẽ dịch các file bytecode này thành mã máy phù hợp với từng hệ điều hành mà bạn dùng, lúc này bạn có thể test thử chương trình rồi ^^
+Vậy là bạn có thể test được chương trình dictionary version 1.0 rồi
+
+## Thành viên trong nhóm gồm:
+- Hoàng Thị Linh
+- Hà Đức Hiệp
+
