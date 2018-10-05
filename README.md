@@ -1,6 +1,6 @@
 # Bài tập lớn chương trình từ điển bằng java
 ## **1.Phiên bản 1.0:** phiên bản từ điển command line sơ khai 
-### Source code: https://github.com/UET-INT2204-12-fall-18/assignment-1-dictionary-c-c/tree/master/v1
+### Source code: https://github.com/linhht-uet/Dictionary
 ### Chức năng chính: 
 Nhập từ tiếng anh và nghĩa trên cửa sổ console
 
