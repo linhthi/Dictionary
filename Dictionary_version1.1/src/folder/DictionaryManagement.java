@@ -34,12 +34,13 @@ public class DictionaryManagement {
         
         Scanner scan = new Scanner(new File("dictionary_eng_vie.txt"));
         while (scan.hasNext()){
-            //String stringWord = scan.nextLine();
+            String stringWord = scan.nextLine();
                 //trong file co dinh dang: phan cach giua tu va giai nghia la dau tab
-                //Scanner s = new Scanner(stringWord).useDelimiter("[\t.]");
+                // Su dung phương thuc useDelimiter() de dinh dang nhap vao
+                Scanner s = new Scanner(stringWord).useDelimiter("s*\ts*");
             Word _word = new Word();
-            _word.setSpelling(scan.next());
-            _word.setExplain(scan.next());
+            _word.setSpelling(s.next());
+            _word.setExplain(s.next());
             myDictionary.listWord.add(_word);
         }
     }
