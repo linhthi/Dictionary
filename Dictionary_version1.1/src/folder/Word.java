@@ -2,31 +2,31 @@
 package folder;
 
 public class Word {
-    private String spelling;
-    private String explain;
+    private String word_target;
+    private String word_explain;
 
-    public Word(String spelling, String explain) {
-        this.spelling = spelling;
-        this.explain = explain;
+    public Word(String word_target, String word_explain) {
+        this.word_target = word_target;
+        this.word_explain = word_explain;
     }
 
     public Word() {
     }
 
-    public void setExplain(String explain) {
-        this.explain = explain;
+    public void setWord_explain(String word_explain) {
+        this.word_explain = word_explain;
     }
 
-    public String getExplain() {
-        return explain;
+    public String getWord_explain() {
+        return word_explain;
     }
 
-    public String getSpelling() {
-        return spelling;
+    public String getWord_target() {
+        return word_target;
     }
 
-    public void setSpelling(String spelling) {
-        this.spelling = spelling;
+    public void setWord_target(String word_target) {
+        this.word_target = word_target;
     }
     
     

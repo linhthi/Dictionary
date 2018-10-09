@@ -20,8 +20,8 @@ public class DictionaryManagement {
         
         for (int i=0; i<numberOfWord; i++) {
             Word _word = new Word();
-            _word.setSpelling(scan.nextLine());
-            _word.setExplain(scan.nextLine());
+            _word.setWord_target(scan.nextLine());
+            _word.setWord_explain(scan.nextLine());
             myDictionary.listWord.add(_word);
         }
     }
@@ -39,8 +39,8 @@ public class DictionaryManagement {
                 // Su dung phương thuc useDelimiter() de dinh dang nhap vao
                 Scanner s = new Scanner(stringWord).useDelimiter("s*\ts*");
             Word _word = new Word();
-            _word.setSpelling(s.next());
-            _word.setExplain(s.next());
+            _word.setWord_target(s.next());
+            _word.setWord_explain(s.next());
             myDictionary.listWord.add(_word);
         }
     }
@@ -54,8 +54,8 @@ public class DictionaryManagement {
         Scanner scan = new Scanner(System.in);
         a= scan.nextLine();
         for (Word i: myDictionary.listWord) {
-            if (i.getSpelling().equals(a)) {
-                System.out.println(a + " means :" + i.getExplain());
+            if (i.getWord_target().equals(a)) {
+                System.out.println(a + " means :" + i.getWord_explain());
             }
         }
         

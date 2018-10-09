@@ -12,7 +12,7 @@ public class DictionaryCommandLine {
         int count =1;
         System.out.println("No   | English \t | Vietnamese ");
         for (Word i : myDictionary.listWord) {
-            System.out.println(count+ "   |"  + i.getSpelling() +"\t | " + i.getExplain());
+            System.out.println(count+ "   |"  + i.getWord_target() +"\t | " + i.getWord_explain());
             count++;
         }
     }
