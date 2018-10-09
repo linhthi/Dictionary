@@ -16,7 +16,8 @@ public class DictionaryCommandline {
         System.out.println("No\t\t|Eng\t\t|Vie");
         while(i<list.word.size()){
             i++;
-            System.out.println(i + "\t\t| " + list.word.get(i-1).toString());
+            Word tmp = (Word) list.word.get(i-1);
+            System.out.println(i + "\t\t| " + tmp.getTarget() + "\t\t|" + tmp.getExplain());
         }
     }
     public void DictionaryBasic(){

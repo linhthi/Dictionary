@@ -14,9 +14,9 @@ public class DictionaryManagement {
         Word new_word = new Word();
         System.out.print("Nhap tu: ");
         Scanner scan = new Scanner(System.in);
-        new_word.setTarget(scan.next());
+        new_word.setTarget(scan.nextLine());
         System.out.print("\nNhap nghia: ");
-        new_word.setExplain(scan.next());
+        new_word.setExplain(scan.nextLine());
          return new_word;
     }
     public Dictionary insertFromCommandline(){
