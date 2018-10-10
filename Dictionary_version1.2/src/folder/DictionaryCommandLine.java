@@ -3,6 +3,7 @@ package folder;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Scanner;
 
 
 public class DictionaryCommandLine {
@@ -41,6 +42,20 @@ public class DictionaryCommandLine {
         dictionaryManagement.dictionaryLookup();
         this.showAllWord();
         dictionaryManagement.dictionaryExportToFile();
+        this.dictionarySeacher();
           
+    }
+    public void dictionarySeacher() {
+        System.out.println("Nhap tu ban can tra: ");
+        String s = new String();
+        Scanner scanner = new Scanner(System.in);
+        s = scanner.nextLine();
+        System.out.println("Cac tu bat dau tu " + s + " la: ");
+        for (Word i: Dictionary.listWord) {
+            int index = i.getWord_target().indexOf(s);
+            if (index == 0) {
+                System.out.println(i.getWord_target() + "\t|" + i.getWord_explain());
+            }
+        }
     }
 }
