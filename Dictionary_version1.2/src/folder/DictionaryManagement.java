@@ -1,11 +1,7 @@
 package folder;
 
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class DictionaryManagement {
  
@@ -76,9 +72,11 @@ public class DictionaryManagement {
         for (Word i: myDictionary.listWord) {
             dout.writeChars(i.getWord_target()+ "\t" + i.getWord_explain()+ "\n");
         }
+        dout.close();
+        fout.close();
     }
      //Ham them mot tu tu command line
-    public void insertWord() {
+    public void insertWord() throws FileNotFoundException, IOException {
         System.out.println("Nhap tu can them vao theo dinh dang word_target \\t word_explain:");
         Scanner scan = new Scanner(System.in);
         String stringWord = scan.nextLine();
@@ -87,6 +85,10 @@ public class DictionaryManagement {
                 String explain = s.next();
         Word newWord = new Word(spelling, explain);
         myDictionary.listWord.add(newWord);
+        FileOutputStream fout = new FileOutputStream("DictionaryNow.txt");
+        DataOutputStream dout = new DataOutputStream(fout);
+        dout.writeChars(newWord.getWord_target() + "\t" + newWord.getWord_explain()+ "\n");
+        dout.close(); fout.close();
     }
     //Ham xoa mot tu tu command line
     public void removeWord(String Word_target) {
