@@ -44,8 +44,8 @@ public class DictionaryManagement {
                 // Su dung phương thuc useDelimiter() de dinh dang nhap vao
                 Scanner s = new Scanner(stringWord).useDelimiter("s*\ts*");
             Word _word = new Word();
-            _word.setWord_target(s.nextLine());
-            _word.setWord_explain(s.nextLine());
+            _word.setWord_target(s.next());
+            _word.setWord_explain(s.next());
             myDictionary.listWord.add(_word);
         }
     }
