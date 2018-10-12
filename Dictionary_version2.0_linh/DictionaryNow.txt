@@ -1,0 +1,9 @@
+linh	lop
+dog	con cho
+cat	meo
+pig	lon
+do	lam viec
+dot	dau cham
+call	goi
+ball	qua bong
+bold	dam
