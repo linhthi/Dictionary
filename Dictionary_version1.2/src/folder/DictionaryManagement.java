@@ -1,17 +1,11 @@
 package folder;
-
-<<<<<<< HEAD
 import java.io.BufferedOutputStream;
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Scanner;
-=======
-import java.io.*;
-import java.util.*;
->>>>>>> 37381282f4675e2bb2964617c1f104c6884ea46c
+
 
 public class DictionaryManagement {
  
@@ -86,12 +80,8 @@ public class DictionaryManagement {
                 bout.write(System.lineSeparator().getBytes()) ;
             
         }
-<<<<<<< HEAD
+
         bout.close();
-=======
-        dout.close();
-        fout.close();
->>>>>>> 37381282f4675e2bb2964617c1f104c6884ea46c
     }
      //Ham them mot tu tu command line
     public void insertWord() throws FileNotFoundException, IOException {
@@ -103,10 +93,7 @@ public class DictionaryManagement {
                 String explain = s.next();
         Word newWord = new Word(spelling, explain);
         myDictionary.listWord.add(newWord);
-        FileOutputStream fout = new FileOutputStream("DictionaryNow.txt");
-        DataOutputStream dout = new DataOutputStream(fout);
-        dout.writeChars(newWord.getWord_target() + "\t" + newWord.getWord_explain()+ "\n");
-        dout.close(); fout.close();
+        
     }
     //Ham xoa mot tu tu command line
     public void removeWord(String Word_target) {
