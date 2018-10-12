@@ -57,7 +57,7 @@ public class DictionaryManagement {
         String a ;
         System.out.println("Ban hay nhap tu muon tra:");
         Scanner scan = new Scanner(System.in);
-        a= scan.nextLine();
+        a = scan.nextLine();
         for (Word i: myDictionary.listWord) {
             if (i.getWord_target().equals(a)) {
                 System.out.println(a + " means :" + i.getWord_explain());
@@ -71,7 +71,7 @@ public class DictionaryManagement {
      * @throws java.io.FileNotFoundException
      */
     public void dictionaryExportToFile() throws FileNotFoundException, IOException {
-       FileOutputStream fout = new FileOutputStream("DictionaryNow.txt");
+        FileOutputStream fout = new FileOutputStream("DictionaryNow.txt");
         BufferedOutputStream bout = new BufferedOutputStream(fout);
         
         for (Word i: myDictionary.listWord) {
@@ -89,8 +89,8 @@ public class DictionaryManagement {
         Scanner scan = new Scanner(System.in);
         String stringWord = scan.nextLine();
         Scanner s = new Scanner(stringWord).useDelimiter("s*\ts*");
-                String spelling = s.next();
-                String explain = s.next();
+        String spelling = s.next();
+        String explain = s.next();
         Word newWord = new Word(spelling, explain);
         myDictionary.listWord.add(newWord);
         
