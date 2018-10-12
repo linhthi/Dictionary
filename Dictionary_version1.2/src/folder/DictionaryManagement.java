@@ -23,7 +23,9 @@ public class DictionaryManagement {
         
         for (int i=0; i<numberOfWord; i++) {
             Word _word = new Word();
+            System.out.print(i+1 + "\nWord is: ");
             _word.setWord_target(scan.nextLine());
+            System.out.print("Mean is: ");
             _word.setWord_explain(scan.nextLine());
             myDictionary.listWord.add(_word);
         }
@@ -42,8 +44,8 @@ public class DictionaryManagement {
                 // Su dung phương thuc useDelimiter() de dinh dang nhap vao
                 Scanner s = new Scanner(stringWord).useDelimiter("s*\ts*");
             Word _word = new Word();
-            _word.setWord_target(s.next());
-            _word.setWord_explain(s.next());
+            _word.setWord_target(s.nextLine());
+            _word.setWord_explain(s.nextLine());
             myDictionary.listWord.add(_word);
         }
     }
