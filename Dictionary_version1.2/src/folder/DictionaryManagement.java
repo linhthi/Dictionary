@@ -1,5 +1,6 @@
 package folder;
 
+import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -69,11 +70,16 @@ public class DictionaryManagement {
      * @throws java.io.FileNotFoundException
      */
     public void dictionaryExportToFile() throws FileNotFoundException, IOException {
-        FileOutputStream fout = new FileOutputStream("DictionaryNow.txt");
-        DataOutputStream dout = new DataOutputStream(fout);
+       FileOutputStream fout = new FileOutputStream("DictionaryNow.txt");
+        BufferedOutputStream bout = new BufferedOutputStream(fout);
+        
         for (Word i: myDictionary.listWord) {
-            dout.writeChars(i.getWord_target()+ "\t" + i.getWord_explain()+ "\n");
+            String line = i.getWord_target()+"\t" + i.getWord_explain();
+                bout.write(line.getBytes());
+                bout.write(System.lineSeparator().getBytes()) ;
+            
         }
+        bout.close();
     }
      //Ham them mot tu tu command line
     public void insertWord() {
