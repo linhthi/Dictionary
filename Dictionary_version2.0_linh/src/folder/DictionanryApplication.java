@@ -122,7 +122,10 @@ public class DictionanryApplication extends javax.swing.JFrame {
         // TODO add your handling code here:
         jButton1.setToolTipText("Tim kiem tu ban can tra");
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /**
+     * The method set Text of JTextFiled to value is selected in JList
+     * @param evt 
+     */
     private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
         // TODO add your handling code here:
         if (jList1.getSelectedValue() != null) {
