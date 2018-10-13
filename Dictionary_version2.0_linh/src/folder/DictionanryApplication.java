@@ -5,6 +5,8 @@
  */
 package folder;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -24,6 +26,13 @@ public class DictionanryApplication extends javax.swing.JFrame {
      */
     public DictionanryApplication() throws FileNotFoundException {
         initComponents();
+        // Set Window center on screen
+        Toolkit toolkit = this.getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        this.setLocation(size.width/2 - this.getWidth()/2,
+                size.height/2 - this.getHeight()/2);
+        
+        // dua word tu file vao Jlist
         DefaultListModel<String> model = new DefaultListModel<>();
         Scanner scan = new Scanner(new File("dictionaries.txt"));
         while (scan.hasNext()) {
@@ -58,6 +67,7 @@ public class DictionanryApplication extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dictinary_ver_2.0");
+        setResizable(false);
 
         jButton1.setText("Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +93,7 @@ public class DictionanryApplication extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
                     .addComponent(jTextField1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
