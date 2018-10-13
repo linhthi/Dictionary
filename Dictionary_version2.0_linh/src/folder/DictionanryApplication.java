@@ -9,6 +9,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +25,7 @@ public class DictionanryApplication extends javax.swing.JFrame {
      * Creates new form DictionanryApplication
      * @throws java.io.FileNotFoundException
      */
+    HashMap<String, String> hashMap = new HashMap<>();
     public DictionanryApplication() throws FileNotFoundException {
         initComponents();
         // Set Window center on screen
@@ -40,9 +42,8 @@ public class DictionanryApplication extends javax.swing.JFrame {
             Scanner s = new Scanner(word).useDelimiter("s*\ts*");
             String target = s.next();
             String explain = s.next();
-            Word _word = new Word(target, explain);
             model.addElement(target);
-            Dictionary.listWord.add(_word);
+            hashMap.put(target, explain);
         }
         jList1.setModel(model);
         
@@ -92,13 +93,14 @@ public class DictionanryApplication extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
                     .addComponent(jTextField1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,6 +125,11 @@ public class DictionanryApplication extends javax.swing.JFrame {
 
     private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
         // TODO add your handling code here:
+        if (jList1.getSelectedValue() != null) {
+            String word = jList1.getSelectedValue().toString();
+            jTextField1.setText(word);
+            jTextArea2.setText(hashMap.get(word));
+        }
     }//GEN-LAST:event_jList1ValueChanged
 
     /**
