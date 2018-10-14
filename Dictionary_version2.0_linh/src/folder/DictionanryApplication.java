@@ -26,16 +26,8 @@ public class DictionanryApplication extends javax.swing.JFrame {
      * @throws java.io.FileNotFoundException
      */
     HashMap<String, String> hashMap = new HashMap<>();
-    public DictionanryApplication() throws FileNotFoundException {
-        initComponents();
-        // Set Window center on screen
-        Toolkit toolkit = this.getToolkit();
-        Dimension size = toolkit.getScreenSize();
-        this.setLocation(size.width/2 - this.getWidth()/2,
-                size.height/2 - this.getHeight()/2);
-        
-        // dua word tu file vao Jlist
-        DefaultListModel<String> model = new DefaultListModel<>();
+    DefaultListModel<String> model = new DefaultListModel<>();
+    public void inputFromFile() throws FileNotFoundException {
         Scanner scan = new Scanner(new File("dictionaries.txt"));
         while (scan.hasNext()) {
             String word = scan.nextLine();
@@ -45,6 +37,17 @@ public class DictionanryApplication extends javax.swing.JFrame {
             model.addElement(target);
             hashMap.put(target, explain);
         }
+    }
+    public DictionanryApplication() throws FileNotFoundException {
+        initComponents();
+        // Set Window center on screen
+        Toolkit toolkit = this.getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        this.setLocation(size.width/2 - this.getWidth()/2,
+                size.height/2 - this.getHeight()/2);
+        
+        // dua word tu file vao Jlist
+        this.inputFromFile();
         jList1.setModel(model);
         
         
@@ -69,6 +72,12 @@ public class DictionanryApplication extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dictinary_ver_2.0");
         setResizable(false);
+
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
 
         jButton1.setText("Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -134,6 +143,23 @@ public class DictionanryApplication extends javax.swing.JFrame {
             jTextArea2.setText(hashMap.get(word));
         }
     }//GEN-LAST:event_jList1ValueChanged
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        // TODO add your handling code here:
+        String search = jTextField1.getText();
+        DefaultListModel<String> model1;
+        model1 = new DefaultListModel<>();
+        hashMap.keySet().forEach((String key) -> {
+            int check = key.indexOf(search);
+            if (check == 0) {
+                model1.addElement(key);
+            }
+        });
+        jList1.setModel(model1);
+        if (search.equals("")) {
+            jList1.setModel(model);
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
 
     /**
      * @param args the command line arguments
