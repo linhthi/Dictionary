@@ -1,7 +1,14 @@
 package folder;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedOutputStream;
+import java.io.BufferedWriter;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class DictionaryManagement {
  
@@ -63,20 +70,23 @@ public class DictionaryManagement {
     }
     /**
      * The method puts all the word 
-     * of current dictionary in File "dictionaries.txt"
+     * of current dictionary in File "DictionaryNow.txt"
      * @throws java.io.FileNotFoundException
      */
     public void dictionaryExportToFile() throws FileNotFoundException, IOException {
         FileOutputStream fout = new FileOutputStream("dictionaries.txt");
-        DataOutputStream dout = new DataOutputStream(fout);
+        BufferedOutputStream bout = new BufferedOutputStream(fout);
+        
         for (Word i: myDictionary.listWord) {
-            dout.writeChars(i.getWord_target()+ "\t" + i.getWord_explain()+ "\n");
+            String line = i.getWord_target()+"\t" + i.getWord_explain();
+                bout.write(line.getBytes());
+                bout.write(System.lineSeparator().getBytes()) ;
+            
         }
-        dout.close();
-        fout.close();
+        bout.close();
     }
      //Ham them mot tu tu command line
-    public void insertWord() throws FileNotFoundException, IOException {
+    public void insertWord() {
         System.out.println("Nhap tu can them vao theo dinh dang word_target \\t word_explain:");
         Scanner scan = new Scanner(System.in);
         String stringWord = scan.nextLine();
@@ -85,10 +95,6 @@ public class DictionaryManagement {
                 String explain = s.next();
         Word newWord = new Word(spelling, explain);
         myDictionary.listWord.add(newWord);
-        FileOutputStream fout = new FileOutputStream("dictionaries.txt");
-        DataOutputStream dout = new DataOutputStream(fout);
-        dout.writeChars(newWord.getWord_target() + "\t" + newWord.getWord_explain()+ "\n");
-        dout.close(); fout.close();
     }
     //Ham xoa mot tu tu command line
     public void removeWord(String Word_target) {
