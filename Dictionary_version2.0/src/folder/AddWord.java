@@ -66,11 +66,6 @@ public class AddWord extends javax.swing.JFrame {
                 SubmitActionPerformed(evt);
             }
         });
-        Submit.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                SubmitKeyPressed(evt);
-            }
-        });
 
         Cancel.setText("Cancel");
         Cancel.addActionListener(new java.awt.event.ActionListener() {
@@ -98,11 +93,6 @@ public class AddWord extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(Submit)
-                        .addGap(64, 64, 64)
-                        .addComponent(Cancel))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -116,7 +106,12 @@ public class AddWord extends javax.swing.JFrame {
                                     .addComponent(target, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(82, 82, 82)
-                        .addComponent(descreption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(descreption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addComponent(Cancel)))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -132,10 +127,10 @@ public class AddWord extends javax.swing.JFrame {
                 .addComponent(mean, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(explain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Submit)
-                    .addComponent(Cancel))
+                    .addComponent(Cancel)
+                    .addComponent(Submit))
                 .addContainerGap())
         );
 
@@ -169,13 +164,13 @@ public class AddWord extends javax.swing.JFrame {
                 
                 Set set = DA.hashMap.entrySet();
         Iterator iterator = set.iterator();
-        System.out.println("English\tVietnamese");
         while(iterator.hasNext()) {
             Map.Entry mentry = (Map.Entry)iterator.next();
             String line = mentry.getKey() + "\t" + mentry.getValue();
             bout.write(line.getBytes());
             bout.write(System.lineSeparator().getBytes());
         }
+        bout.close();
                 
                 this.dispose();
                 DA.setVisible(true);
@@ -187,10 +182,6 @@ public class AddWord extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_SubmitActionPerformed
-
-    private void SubmitKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SubmitKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SubmitKeyPressed
     
     /**
      * @param args the command line arguments

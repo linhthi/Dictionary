@@ -1,0 +1,14 @@
+hi	xin chào
+good morning	chào buổi sáng
+night	buổi tối
+﻿hello	xin chào
+bye	tạm biệt
+morning	buổi sáng
+call	gọi điện
+afternoon	buổi chiều
+how	như thế nào
+noon	buổi trưa
+messenger	tin nhắn
+cat	con mèo
+bird	con chim
+dog	con chó

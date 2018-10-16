@@ -25,7 +25,7 @@ public class DictionanryApplication extends javax.swing.JFrame {
      * Creates new form DictionanryApplication
      * @throws java.io.FileNotFoundException
      */
-    HashMap<String, String> hashMap = new HashMap<>();
+    static HashMap<String, String> hashMap = new HashMap<>();
     DefaultListModel<String> model = new DefaultListModel<>();
     public void inputFromFile() throws FileNotFoundException {
         Scanner scan = new Scanner(new File("dictionaries.txt"));
@@ -34,8 +34,9 @@ public class DictionanryApplication extends javax.swing.JFrame {
             Scanner s = new Scanner(word).useDelimiter("s*\ts*");
             String target = s.next();
             String explain = s.next();
-            model.addElement(target);
             hashMap.put(target, explain);
+            model.addElement(target);
+            
         }
     }
     public DictionanryApplication() throws FileNotFoundException {
