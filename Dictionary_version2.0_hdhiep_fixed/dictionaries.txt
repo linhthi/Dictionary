@@ -1,4 +1,5 @@
 hi	xin chào
+doll	búp bê
 good morning	chào buổi sáng
 night	buổi tối
 ﻿hello	xin chào
@@ -7,6 +8,7 @@ morning	buổi sáng
 call	gọi điện
 afternoon	buổi chiều
 how	như thế nào
+ball	quả bóng
 noon	buổi trưa
 messenger	tin nhắn
 cat	con mèo
