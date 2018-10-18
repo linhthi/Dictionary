@@ -3,6 +3,8 @@ package folder;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Main {
 /*
@@ -12,4 +14,5 @@ public class Main {
         newCommandLine.dictionaryAdvanced();
     }
 */
+    
 }

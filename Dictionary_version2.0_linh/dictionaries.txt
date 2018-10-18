@@ -1,8 +1,34 @@
-dog	con cho
-cat	meo
-pig	lon
-do	lam viec
+pink	mau hong
 dot	dau cham
-call	goi
+do	lam viec
+brink	mang
+sun	mat troi
+summer	mua he
+pig	con lon
+cloud	dam may
+spring	mua xuan
+red	mau do
+apple	qua tao
 ball	qua bong
+computer	may tinh
+gray	mau xam
+array	mang
+grass	coc
+cat	con meo
+wedding	dam cuoi
+man	dan ong
+sunny	nang
+write	viet
+banana	chuoi
+green	mau xanh la
+read	doc
+break	lam vo
 bold	dam
+call	goi
+orange	mau da cam
+doctor	bac si
+dictionary	tu dien
+blue	mau xanh da troi
+earth	trai dat
+autumn	mua thu
+dog	con cho
