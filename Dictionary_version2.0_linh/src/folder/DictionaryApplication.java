@@ -8,16 +8,14 @@ package folder;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.Player;
-
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
 /**
  *
  * @author pc
@@ -25,7 +23,8 @@ import javazoom.jl.player.Player;
 public class DictionaryApplication extends javax.swing.JFrame {
     
     AddWord add = new AddWord();
-    
+    VoiceManager vm;
+    Voice v;
     static HashMap<String, String> hashMap = new HashMap<>();
     DefaultListModel<String> model = new DefaultListModel<>();
     
@@ -297,18 +296,12 @@ public class DictionaryApplication extends javax.swing.JFrame {
     }//GEN-LAST:event_AddActionPerformed
 
     private void SpeechActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpeechActionPerformed
-        try {
-            FileInputStream fileInputStream = null;
-            try {
-                fileInputStream = new FileInputStream("GirlsLikeYou.mp3");
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(DictionaryApplication.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            Player player = new Player(fileInputStream);
-            player.play();
-        } catch (JavaLayerException ex) {
-            Logger.getLogger(DictionaryApplication.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+        System.setProperty("mbrola.base", "mbrola");
+        vm = VoiceManager.getInstance();
+        v = vm.getVoice("mbrola_us1");
+        v.allocate();
+        v.speak(jList1.getSelectedValue());
     }//GEN-LAST:event_SpeechActionPerformed
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
