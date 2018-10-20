@@ -60,6 +60,11 @@ public class AddWord extends javax.swing.JFrame {
                 SubmitActionPerformed(evt);
             }
         });
+        Submit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SubmitKeyReleased(evt);
+            }
+        });
 
         Cancel.setText("Cancel");
         Cancel.addActionListener(new java.awt.event.ActionListener() {
@@ -151,21 +156,20 @@ public class AddWord extends javax.swing.JFrame {
         else{
             try {
                 DictionanryApplication DA = new DictionanryApplication();
-                DA.hashMap.put(target.getText(), explain.getText());
+                DictionanryApplication.hashMap.put(target.getText(), explain.getText());
                 DA.model.addElement(target.getText());
                 FileOutputStream fout = new FileOutputStream("dictionaries.txt");
-                BufferedOutputStream bout = new BufferedOutputStream(fout);
-                
-                Set set = DA.hashMap.entrySet();
-        Iterator iterator = set.iterator();
-        while(iterator.hasNext()) {
-            Map.Entry mentry = (Map.Entry)iterator.next();
-            String line = mentry.getKey() + "\t" + mentry.getValue();
-            bout.write(line.getBytes());
-            bout.write(System.lineSeparator().getBytes());
-        }
-        bout.close();
-                
+                try (BufferedOutputStream bout = new BufferedOutputStream(fout)) {
+                    Set set = DictionanryApplication.hashMap.entrySet();
+                    Iterator iterator = set.iterator();
+                    while(iterator.hasNext()) {
+                        Map.Entry mentry = (Map.Entry)iterator.next();
+                        String line = mentry.getKey() + "\t" + mentry.getValue();
+                        bout.write(line.getBytes());
+                        bout.write(System.lineSeparator().getBytes());
+                    }
+                }
+                JOptionPane.showMessageDialog(null,"Add new word successful!!","ADD NEW WORD!!", WIDTH);
                 this.dispose();
                 DA.setVisible(true);
             } catch (FileNotFoundException ex) {
@@ -176,6 +180,11 @@ public class AddWord extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_SubmitActionPerformed
+
+    private void SubmitKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SubmitKeyReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_SubmitKeyReleased
     
     /**
      * @param args the command line arguments
@@ -205,10 +214,8 @@ public class AddWord extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AddWord().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new AddWord().setVisible(true);
         });
     }
 

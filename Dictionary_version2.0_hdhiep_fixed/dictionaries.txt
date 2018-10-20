@@ -1,15 +1,16 @@
-hi	xin chào
-doll	búp bê
+﻿doll	búp bê
+banana	quả chuối
 good morning	chào buổi sáng
-night	buổi tối
-﻿hello	xin chào
+tree	cái cây
 bye	tạm biệt
 morning	buổi sáng
+coconut	quả dừa
 call	gọi điện
 afternoon	buổi chiều
 how	như thế nào
-ball	quả bóng
+apple	quả táo
 noon	buổi trưa
+pineapple	quả dứa
 messenger	tin nhắn
 cat	con mèo
 bird	con chim
