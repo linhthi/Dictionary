@@ -1,7 +1,6 @@
 ﻿doll	búp bê
 banana	quả chuối
 good morning	chào buổi sáng
-chair	cái ghế
 tree	cái cây
 bye	tạm biệt
 morning	buổi sáng
@@ -15,5 +14,4 @@ pineapple	quả dứa
 messenger	tin nhắn
 cat	con mèo
 bird	con chim
-hello	xin chào
 dog	con chó
