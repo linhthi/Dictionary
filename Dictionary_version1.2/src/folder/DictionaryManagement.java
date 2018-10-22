@@ -99,7 +99,7 @@ public class DictionaryManagement {
         boolean check = false;
         for (Word i: Dictionary.listWord) {
             if (i.getWord_target().equalsIgnoreCase(stringWord)) {
-                System.out.println("Tu nay co trong tu dien roi ma:");
+                System.out.println("Tu nay co trong tu dien roi ma!");
                 check = true;
                 break;
             }
