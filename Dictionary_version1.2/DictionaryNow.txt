@@ -1,5 +1,4 @@
-class	lop
-dog	con cho
+﻿dog	con cho
 cat	meo
 pig	lon
 do	lam viec

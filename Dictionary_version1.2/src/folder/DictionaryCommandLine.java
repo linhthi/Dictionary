@@ -9,26 +9,35 @@ import java.util.Scanner;
 public class DictionaryCommandLine {
     DictionaryManagement dictionaryManagement = new DictionaryManagement();
     
-    /**
-     * The method use show all the word in dictionary
-     */
-    public void showAllWord() {
-        Dictionary myDictionary = new Dictionary();
-        int count = 1;
-        System.out.println("No   | English \t | Vietnamese ");
-        for (Word i : myDictionary.listWord) {
-            System.out.println(count+ "   |"  + i.getWord_target() +"\t | " + i.getWord_explain());
-            count++;
-        }
-    }
      /**
      * The method dictionary basic from version 1
      * insert the list Word form Command Line
      * This calls insertFromCommandLine method and showAllWord method of class DictionaryManagement
     */
     public void dictionaryBasic() {
-        dictionaryManagement.insertFromCommandLine();
-        this.showAllWord();
+        System.out.println("*************Dictionary Basic*************");
+        System.out.println("");
+        System.out.println("VUI LONG SU DUNG CAC LENH DUOI DAY");
+        System.out.println("0: Thoat ung dung");
+        System.out.println("1: Them tu vao tu dien");
+        System.out.println("2: Hien thi danh sach tu");
+        Scanner reader = new Scanner(System.in);
+        char c = reader.next().charAt(0);
+
+        switch (c) {
+            case '0':
+                System.out.println("Dang thoat");
+                return;
+            case '1':
+                dictionaryManagement.insertFromCommandLine();  
+                break;
+            case '2':
+                dictionaryManagement.showAllWord();
+                break;    
+            default:
+                break;
+        }
+        dictionaryBasic();
     }
     /**
      * The method dictionary advanced from version 2
@@ -38,24 +47,41 @@ public class DictionaryCommandLine {
      * @throws FileNotFoundException 
      */
     public void dictionaryAdvanced() throws FileNotFoundException, IOException {
-        dictionaryManagement.insertFromFile();
-        dictionaryManagement.dictionaryLookup();
-        this.showAllWord();
-        dictionaryManagement.dictionaryExportToFile();
-        this.dictionarySeacher();
+        System.out.println("************* Dictionary Advanced*************");
+        System.out.println("");
+        System.out.println("VUI LONG SU DUNG CAC LENH DUOI DAY");
+        System.out.println("0: Thoat ung dung");
+        System.out.println("1: Them tu vao tu dien bang file");
+        System.out.println("2: Hien thi danh sach tu");
+        System.out.println("3: Tim kiem tu");
+        System.out.println("4: Tim danh sach cac tu bat dau voi xau ban nhap vao");
+        
+        Scanner reader = new Scanner(System.in);
+        char c = reader.next().charAt(0);
+
+        switch (c) {
+            case '0':
+                System.out.println("Dang thoat");
+                return;
+            case '1':
+                dictionaryManagement.insertFromFile();
+                System.out.println("Da them tu tu file!");
+                break;
+            case '2':
+                dictionaryManagement.showAllWord();
+                break;    
+            case '3':
+                dictionaryManagement.dictionaryLookup();
+                break; 
+            case '4':
+                dictionaryManagement.dictionarySeacher();
+            default:
+                break;
+        }
+        System.out.println("");
+        dictionaryAdvanced();
+    }
           
     }
-    public void dictionarySeacher() {
-        System.out.println("Nhap tu ban can tra: ");
-        String s = new String();
-        Scanner scanner = new Scanner(System.in);
-        s = scanner.nextLine();
-        System.out.println("Cac tu bat dau tu " + s + " la: ");
-        for (Word i: Dictionary.listWord) {
-            int index = i.getWord_target().indexOf(s);
-            if (index == 0) {
-                System.out.println(i.getWord_target() + "\t|" + i.getWord_explain());
-            }
-        }
-    }
-}
+    
+
