@@ -93,24 +93,66 @@ public class DictionaryManagement {
     }
      //Ham them mot tu tu command line
     public void insertWord() throws FileNotFoundException, IOException {
-        System.out.println("Nhap tu can them vao theo dinh dang word_target \\t word_explain:");
+        System.out.println("Nhap tu can them vao:");
         Scanner scan = new Scanner(System.in);
         String stringWord = scan.nextLine();
-        Scanner s = new Scanner(stringWord).useDelimiter("\t");
-        String spelling = s.next();
-        String explain = s.next();
-        Word newWord = new Word(spelling, explain);
-        Dictionary.listWord.add(newWord);
+        boolean check = false;
+        for (Word i: Dictionary.listWord) {
+            if (i.getWord_target().equalsIgnoreCase(stringWord)) {
+                System.out.println("Tu nay co trong tu dien roi ma:");
+                check = true;
+                break;
+            }
+        }
+        if (!check) {
+            System.out.println("Nhap nghia cua tu nay:");
+            String explain = scan.nextLine();
+            Dictionary.listWord.add(new Word(stringWord, explain));
+            System.out.println("Them tu thanh cong!");
+        }
         
     }
     //Ham xoa mot tu tu command line
-    public void removeWord(String Word_target) {
-        Dictionary.listWord.stream().filter((i) -> (i.getWord_target().equals(Word_target))).forEachOrdered((i) -> {
-            Dictionary.listWord.remove(i);
-        });
+    public void removeWord() {
+        String word_target;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Nhap tu ban muon xoa");
+        word_target = scan.nextLine();
+        boolean check = false;
+        for(Word i: Dictionary.listWord) {
+            if (i.getWord_target().equalsIgnoreCase(word_target)) {
+                Dictionary.listWord.remove(i);
+                check = false;
+            }
+        }
+        if (check) {
+            System.out.println("Xoa thanh cong");
+        }
+        else {
+            System.out.println("Khong co tu nay trong tu dien");
+        }
     }
     //Ham sua du lieu tu command line
     public void editWord() {
+        System.out.println("Nhap tu can sua:");
+        Scanner scan = new Scanner(System.in);
+        String word = scan.nextLine();
+        boolean check = false;
+        for (Word i: Dictionary.listWord) {
+            if ( i.getWord_target().equalsIgnoreCase(word)) {
+                System.out.println("Ban muon sua tu thanh: ");
+                String target = scan.nextLine();
+                i.setWord_target(target);
+                System.out.println("Nhap nghia ma ban muon sua:");
+                String explain = scan.nextLine();
+                i.setWord_explain(explain);
+                check = true;
+                break;
+        }
+        }
+        if (!check) {
+            System.out.println("Khong co tu nay trong tu dien");
+        }
         
     }
     public void dictionarySeacher() {

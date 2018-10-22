@@ -54,7 +54,10 @@ public class DictionaryCommandLine {
         System.out.println("1: Them tu vao tu dien bang file");
         System.out.println("2: Hien thi danh sach tu");
         System.out.println("3: Tim kiem tu");
-        System.out.println("4: Tim danh sach cac tu bat dau voi xau ban nhap vao");
+        System.out.println("4: Them 1 tu vao tu dien");
+        System.out.println("5: Xoa 1 tu khoi tu dien");
+        System.out.println("6: Sua 1 tu o tu dien");
+        System.out.println("7: Tim danh sach cac tu bat dau voi xau ban nhap vao");
         
         Scanner reader = new Scanner(System.in);
         char c = reader.next().charAt(0);
@@ -74,6 +77,15 @@ public class DictionaryCommandLine {
                 dictionaryManagement.dictionaryLookup();
                 break; 
             case '4':
+                dictionaryManagement.insertWord();
+                break;
+            case '5':
+                dictionaryManagement.removeWord();
+                break; 
+            case '6':
+                dictionaryManagement.editWord();
+                break; 
+            case '7':
                 dictionaryManagement.dictionarySeacher();
             default:
                 break;
