@@ -41,10 +41,8 @@
                       <EmptySpace pref="73" max="32767" attributes="0"/>
                       <Component id="cencelButton" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="target" max="32767" attributes="0"/>
-                      <Component id="explain" pref="189" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="target" max="32767" attributes="0"/>
+                  <Component id="explain" pref="189" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>

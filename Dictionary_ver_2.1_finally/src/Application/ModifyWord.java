@@ -121,7 +121,7 @@ public class ModifyWord extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             MainFrame mf = new MainFrame();
-            if (mf.dm.dictionaryLookUp(target.getText()) == true) {
+            if (mf.dm.dictionaryLookUp(target.getText())) {
                 mf.dm.modifyWord(target.getText(), explain.getText());
                 this.dispose();
                 JOptionPane.showMessageDialog(null,"Modify successful!!","MODIFY WORD!", WIDTH);

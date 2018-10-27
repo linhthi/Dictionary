@@ -16,7 +16,7 @@ import org.json.simple.parser.ParseException;
  
 /**
  *
- * @author Code4LifeVn
+ * @author Linhht-uet
  */
 public class GoogleTranslator {
      
@@ -30,7 +30,6 @@ public class GoogleTranslator {
 	public String translate(String query) throws MalformedURLException, IOException, ParseException {
 		URL url = new URL(this.buildURLRequestWith(query));
 		urlTest = this.buildURLRequestWith(query);
-//		URL url = new URL("http://translate.google.com/translate_a/t?client=gtrans&sl=en&tl=vi&format=html&v=2.0&q=Hello%20world");
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
 		conn.setDoOutput(true);
